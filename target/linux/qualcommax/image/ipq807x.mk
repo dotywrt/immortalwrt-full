@@ -47,6 +47,24 @@ define Device/arcadyan_aw1000
 endef
 TARGET_DEVICES += arcadyan_aw1000
 
+define Device/sagemcom_5866t
+	$(call Device/FitImage)
+	$(call Device/EmmcImage)
+	DEVICE_VENDOR := Sagemcom
+	DEVICE_MODEL := 5866T
+	DEVICE_DTS_CONFIG := config@hk01.c6
+	SOC := ipq8072
+	SOC := ipq8072
+	KERNEL_SIZE := 12288k
+	IMAGES := sysupgrade.bin factory.bin kernel.bin
+	IMAGE/sysupgrade.bin := sysupgrade-tar | append-metadata
+	IMAGE/factory.bin := append-kernel | pad-to $$$$(KERNEL_SIZE) | append-rootfs | append-metadata
+	IMAGE/kernel.bin := append-kernel
+	DEVICE_PACKAGES := kmod-fs-f2fs f2fs-tools kmod-spi-gpio \
+		kmod-gpio-nxp-74hc164 kmod-usb-serial-option uqmi
+endef
+TARGET_DEVICES += sagemcom_5866t
+
 define Device/asus_rt-ax89x
        DEVICE_VENDOR := Asus
 	DEVICE_MODEL := RT-AX89X
