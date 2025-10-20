@@ -61,7 +61,8 @@ define Device/sagemcom_5866t
 	IMAGE/factory.bin := append-kernel | pad-to $$$$(KERNEL_SIZE) | append-rootfs | append-metadata
 	IMAGE/kernel.bin := append-kernel
 	DEVICE_PACKAGES := kmod-fs-f2fs f2fs-tools kmod-spi-gpio \
-		kmod-gpio-nxp-74hc164 kmod-usb-serial-option uqmi
+        kmod-gpio-nxp-74hc164 kmod-usb-net-cdc-mbim mbimcli usb-modeswitch
+
 endef
 TARGET_DEVICES += sagemcom_5866t
 
