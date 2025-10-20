@@ -46,13 +46,13 @@
 		regulator-always-on;
 	};
 
-	quectel_modem: quectel-modem {
-		compatible = "quectel,rg501q", "qcom,qmi-wwan";
-		status = "okay";
-		lte-power-gpio = <&tlmm 2 GPIO_ACTIVE_HIGH>;
-		lte-reset-gpio = <&tlmm 42 GPIO_ACTIVE_LOW>;
-		lte-poweron-gpio = <&tlmm 52 GPIO_ACTIVE_HIGH>;
-};
+    quectel_modem: quectel-modem {
+        compatible = "quectel,rg501q", "qcom,cdc-mbim";
+        status = "okay";
+        lte-power-gpio = <&tlmm 2 GPIO_ACTIVE_HIGH>;
+        lte-reset-gpio = <&tlmm 42 GPIO_ACTIVE_LOW>;
+        lte-poweron-gpio = <&tlmm 52 GPIO_ACTIVE_HIGH>;
+    };
 
 	gpio-export {
 		compatible = "gpio-export";
